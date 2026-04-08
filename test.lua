@@ -3,7 +3,7 @@ local player = Players.LocalPlayer
 local keyURL = "https://raw.githubusercontent.com/DarxanX/halftp-paid/refs/heads/main/keys.txt"
 
 if Key == nil or Key == "" then
-    game.Players.LocalPlayer:Kick("No key detected")
+    Player:Kick("No key detected")
     return
 end
 
