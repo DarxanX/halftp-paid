@@ -1,4 +1,5 @@
-
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
 local keyURL = "https://raw.githubusercontent.com/DarxanX/halftp-paid/refs/heads/main/keys.txt"
 
 if Key == nil or Key == "" then
@@ -11,7 +12,7 @@ local success, result = pcall(function()
 end)
 
 if not success then
-    game.Players.LocalPlayer:Kick("Key server error")
+    Player:Kick("Key server error")
     return
 end
 
@@ -25,7 +26,7 @@ for key in string.gmatch(result, "[^\r\n]+") do
 end
 
 if not valid then
-    game.Players.LocalPlayer:Kick("Wrong key")
+    Player:Kick("Wrong key")
     return
 end
 
