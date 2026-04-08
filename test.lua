@@ -1,0 +1,32 @@
+
+local keyURL = "https://raw.githubusercontent.com/DarxanX/halftp-paid/refs/heads/main/keys.txt"
+
+if Key == nil or Key == "" then
+    game.Players.LocalPlayer:Kick("No key detected")
+    return
+end
+
+local success, result = pcall(function()
+    return game:HttpGet(keyURL)
+end)
+
+if not success then
+    game.Players.LocalPlayer:Kick("Key server error")
+    return
+end
+
+local valid = false
+
+for key in string.gmatch(result, "[^\r\n]+") do
+    if Key == key then
+        valid = true
+        break
+    end
+end
+
+if not valid then
+    game.Players.LocalPlayer:Kick("Wrong key")
+    return
+end
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DarxanX/halftp-paid/refs/heads/main/loader.lua"))()
